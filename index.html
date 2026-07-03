@@ -3,232 +3,200 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>SIAVAC - Rekritman Ajan Ankètè</title>
+<title>SIAVAC - Fich Afektasyon</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
 <style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
-}
-
 body{
-background:#eef0f2;
-padding:10px;
+font-family:Arial;
+background:#eee;
+padding:8px;
 }
 
 .container{
 max-width:900px;
 margin:auto;
 background:#fff;
-padding:18px;
+padding:12px;
 border-radius:10px;
-box-shadow:0 0 10px rgba(0,0,0,.15);
+box-shadow:0 0 10px rgba(0,0,0,0.2);
+}
+
+#pdf{
+width:100%;
+}
+
+/* PAGE */
+.page{
+padding:15px;
+box-sizing:border-box;
 }
 
 /* HEADER */
 .header{
 text-align:center;
-margin-bottom:15px;
+margin-bottom:10px;
 }
 
 .header img{
-width:90px;
-height:90px;
-object-fit:contain;
+width:75px;
 }
 
 .header h1{
 color:#003366;
-font-size:24px;
+margin:5px 0;
+font-size:22px;
 }
 
-.header h2{
+.header h3{
 font-size:14px;
-color:#444;
-}
-
-/* INFO BOX */
-.info-box{
-background:#f1f6ff;
-padding:10px;
-border-left:4px solid #003366;
-margin-bottom:15px;
-font-size:13px;
 }
 
 /* SECTION */
-.section-title{
+.section{
+margin-top:12px;
+padding:10px;
+border:1px solid #ccc;
+border-radius:8px;
+}
+
+.title{
 background:#003366;
 color:#fff;
-padding:8px;
-font-size:15px;
-margin-top:15px;
+padding:6px;
 border-radius:5px;
+font-size:13px;
 }
 
 label{
+display:block;
+margin-top:8px;
 font-weight:bold;
 font-size:13px;
-margin-top:10px;
-display:block;
 }
 
-input,textarea{
+input{
 width:100%;
-padding:10px;
+padding:9px;
+margin-top:4px;
 border:1px solid #aaa;
 border-radius:6px;
 font-size:14px;
 }
 
-textarea{
-min-height:80px;
-resize:vertical;
-}
-
 button{
 width:100%;
-margin-top:20px;
+margin-top:15px;
+padding:12px;
 background:#003366;
 color:#fff;
-padding:12px;
 border:none;
 border-radius:6px;
-font-size:16px;
+font-size:15px;
 cursor:pointer;
 }
 
 button:hover{
 background:#0050a5;
 }
-
-.signature{
-display:flex;
-justify-content:space-between;
-flex-wrap:wrap;
-margin-top:40px;
-}
-
-.signature div{
-width:100%;
-text-align:center;
-}
-
-.line{
-border-top:1px solid #000;
-margin-top:45px;
-}
-
-/* DESKTOP */
-@media(min-width:768px){
-.signature div{width:40%}
-}
-
-/* PRINT */
-@media print{
-button{display:none}
-}
 </style>
-
 </head>
 
 <body>
 
 <div class="container" id="pdf">
 
+<div class="page">
+
+<!-- HEADER -->
 <div class="header">
 <img src="https://i.ibb.co/zTz2rrh8/sketch-1782265870898.jpg">
 <h1>SIAVAC</h1>
-<h2>Service Intelligence AntiVol AntiCrime</h2>
-<h2>FÒM REKRITMAN AJAN ANKÈTÈ</h2>
+<h3>Fich Afektasyon Ajan</h3>
 </div>
 
-<div class="info-box">
-Ranpli fòm sa ak verite. SIAVAC ap itilize enfòmasyon sa pou evalyasyon rekritman ou.
+<!-- ID -->
+<div class="section">
+<div class="title">ID SIAVAC</div>
+
+<label>Nimewo Dosye</label>
+<input type="text" id="siavac_id" readonly>
 </div>
 
-<div class="section-title">ENFÒMASYON PÈSONÈL</div>
+<!-- AGENT INFO -->
+<div class="section">
+<div class="title">ENFÒMASYON AJAN</div>
 
-<label>Non ak Siyati</label>
-<input type="text">
+<label>Non Ajan</label>
+<input type="text" placeholder="Ekri non konplè ajan">
+
+<label>Fonksyon</label>
+<input type="text" placeholder="Eg: Ajan Ankèt / Sekirite">
 
 <label>Telefòn</label>
-<input type="text">
+<input type="text" placeholder="+509 ...">
+</div>
 
-<label>Adrès</label>
-<input type="text">
+<!-- AFFECTATION -->
+<div class="section">
+<div class="title">DETAY AFEKTASYON</div>
 
-<label>Dat nesans</label>
+<label>Zòn Afektasyon</label>
+<input type="text" placeholder="Eg: Port-au-Prince / Zone ...">
+
+<label>Dat Kòmansman</label>
 <input type="date">
+</div>
 
-<label>Laj</label>
-<input type="text">
+<!-- DECLARATION -->
+<div class="section">
+<div class="title">DEKLARASYON</div>
 
-<div class="section-title">ENFÒMASYON REFERANS</div>
-
-<label>Nimewo Telefòn Referans (1 moun ki ka konfime ou)</label>
-<input type="text">
-
-<div class="section-title">MOTIVASYON</div>
-
-<label>Ekri kisa ki motive ou pou antre nan SIAVAC</label>
-<textarea style="min-height:150px"></textarea>
-
-<div class="section-title">DEKLARASYON</div>
-
-<p style="font-size:13px;line-height:22px;">
-Mwen konfime tout enfòmasyon mwen bay yo se verite. Mwen konprann SIAVAC ka verifye yo pandan pwosesis rekritman an.
+<p style="font-size:13px;line-height:20px;">
+Dokiman sa se yon fich afektasyon ofisyèl SIAVAC ki konfime plasman ajan an nan yon zòn sèvis.
 </p>
-
-<div class="signature">
-
-<div>
-<div class="line"></div>
-Kandida
-</div>
-
-<div>
-<div class="line"></div>
-SIAVAC
 </div>
 
 </div>
 
-<button onclick="downloadPDF()">📄 Telechaje Fòm Rekritman</button>
+<button onclick="downloadPDF()">📄 Telechaje Fich la</button>
 
 </div>
 
 <script>
-function downloadPDF(){
 
+// 🔥 ID OTOMATIK SIAVAC
+function generateID(){
+const year = new Date().getFullYear();
+const rand = Math.floor(100000 + Math.random()*900000);
+document.getElementById("siavac_id").value =
+"SIAVAC-AFF-" + year + "-" + rand;
+}
+
+window.onload = generateID;
+
+// 📄 PDF DOWNLOAD
+function downloadPDF(){
 const element = document.getElementById("pdf");
 
 html2pdf().set({
-margin:0.4,
-filename:'SIAVAC_Rekritman_Ajan_Enketè.pdf',
-image:{type:'jpeg',quality:1},
-html2canvas:{
-scale:2,
-useCORS:true,
-scrollY:0,
-windowWidth:element.scrollWidth
+margin: 8,
+filename: 'SIAVAC_Fich_Afektasyon.pdf',
+image: { type: 'jpeg', quality: 0.98 },
+html2canvas: {
+scale: 2,
+useCORS: true,
+scrollY: 0
 },
-jsPDF:{
-unit:'mm',
-format:'a4',
-orientation:'portrait'
-},
-pagebreak:{
-mode:['css','legacy','avoid-all']
+jsPDF: {
+unit: 'mm',
+format: 'a4',
+orientation: 'portrait'
 }
 }).from(element).save();
 }
+
 </script>
 
 </body>
